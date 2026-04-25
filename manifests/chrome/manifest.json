@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "NeuroSkill",
+  "version": "0.0.1",
+  "description": "EEG-correlated browser activity tracking — correlate your browsing patterns with brain state.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webNavigation",
+    "storage",
+    "alarms",
+    "bookmarks",
+    "downloads",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:18444/*",
+    "http://127.0.0.1:18445/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "incognito": "split"
+}

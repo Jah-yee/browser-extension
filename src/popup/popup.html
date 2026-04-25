@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSkill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>NeuroSkill</h1>
+      <div id="connection-status" class="status disconnected">
+        <span class="dot"></span>
+        <span id="status-text">Disconnected</span>
+      </div>
+    </header>
+
+    <section id="brain-section" class="section hidden">
+      <div class="brain-grid">
+        <div class="brain-card" id="flow-card">
+          <div class="label">Flow</div>
+          <div class="value" id="flow-value">--</div>
+        </div>
+        <div class="brain-card" id="fatigue-card">
+          <div class="label">Energy</div>
+          <div class="value" id="fatigue-value">--</div>
+        </div>
+        <div class="brain-card" id="streak-card">
+          <div class="label">Streak</div>
+          <div class="value" id="streak-value">--</div>
+        </div>
+        <div class="brain-card" id="task-card">
+          <div class="label">Task</div>
+          <div class="value" id="task-value">--</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="stat-row">
+        <span class="stat-label">Events sent</span>
+        <span class="stat-value" id="events-count">0</span>
+      </div>
+    </section>
+
+    <footer>
+      <button id="reconnect-btn" class="btn">Reconnect</button>
+      <button id="options-btn" class="btn btn-secondary">Settings</button>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

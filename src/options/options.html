@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroSkill Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>NeuroSkill Settings</h1>
+
+    <!-- Pairing Section -->
+    <section class="card">
+      <h2>Daemon Connection</h2>
+      <p class="hint">Pair with your local NeuroSkill daemon to start tracking.</p>
+      <div class="field">
+        <label for="auth-token">Auth Token</label>
+        <div class="input-group">
+          <input type="password" id="auth-token" placeholder="Paste token from NeuroSkill app">
+          <button id="paste-btn" class="btn-sm">Paste</button>
+          <button id="test-btn" class="btn-sm btn-primary">Test</button>
+        </div>
+        <div id="token-status" class="hint"></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="daemon-host">Host</label>
+          <input type="text" id="daemon-host" value="127.0.0.1">
+        </div>
+        <div class="field">
+          <label for="daemon-port">Port</label>
+          <input type="number" id="daemon-port" value="0" min="0" max="65535">
+          <span class="hint">0 = auto-discover</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="card">
+      <h2>Privacy</h2>
+      <div class="field">
+        <label for="privacy-mode">URL Tracking Level</label>
+        <select id="privacy-mode">
+          <option value="domain_only">Domain Only (most private)</option>
+          <option value="title_and_domain">Domain + Path</option>
+          <option value="full_url">Full URL</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>
+          <input type="checkbox" id="incognito-tracking">
+          Track incognito / private browsing
+        </label>
+      </div>
+    </section>
+
+    <!-- Event Tracking Section -->
+    <section class="card">
+      <h2>Event Tracking</h2>
+      <div class="toggle-grid">
+        <label><input type="checkbox" id="track-scroll" checked> Scroll depth</label>
+        <label><input type="checkbox" id="track-reading" checked> Reading patterns</label>
+        <label><input type="checkbox" id="track-form" checked> Form activity</label>
+        <label><input type="checkbox" id="track-media" checked> Media state</label>
+        <label><input type="checkbox" id="track-search"> Search queries</label>
+      </div>
+    </section>
+
+    <!-- Domain Lists Section -->
+    <section class="card">
+      <h2>Domain Filters</h2>
+      <div class="field">
+        <label for="blocklist">Blocklist <span class="hint">(never track these domains)</span></label>
+        <textarea id="blocklist" rows="4" placeholder="bank.example.com&#10;*.health.gov&#10;facebook.com"></textarea>
+      </div>
+      <div class="field">
+        <label for="allowlist">Allowlist <span class="hint">(if set, only track these)</span></label>
+        <textarea id="allowlist" rows="4" placeholder="github.com&#10;stackoverflow.com&#10;*.docs.rs"></textarea>
+      </div>
+    </section>
+
+    <!-- Advanced Section -->
+    <section class="card">
+      <h2>Advanced</h2>
+      <div class="field">
+        <label for="batch-interval">Batch interval (ms)</label>
+        <input type="number" id="batch-interval" value="2000" min="500" max="30000" step="500">
+      </div>
+      <div class="field">
+        <label>
+          <input type="checkbox" id="enabled" checked>
+          Extension enabled
+        </label>
+      </div>
+    </section>
+
+    <footer>
+      <button id="save-btn" class="btn btn-primary">Save Settings</button>
+      <span id="save-status" class="hint"></span>
+    </footer>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
