@@ -4,6 +4,9 @@
     "moduleResolution": "bundler",
     "target": "ES2022",
     "lib": ["ES2022", "DOM"],
+    // TS 6.0 no longer auto-includes all @types packages into global scope;
+    // list the ambient globals this extension relies on explicitly.
+    "types": ["chrome"],
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
