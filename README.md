@@ -81,7 +81,7 @@ Every metric the daemon exposes is computed from the signals above and, optional
 
 The weights are documented hyperparameters in the daemon and tuneable per user. Browser-only focus has not been validated against external instruments; treat as **exploratory**.
 
-**With EEG.** When a headset, conneced to NeuroSkill is streaming, the browser-only score is blended (50/50 by default) with a band-amplitude ratio derived from electrodes:
+**With EEG.** When a headset, connected to NeuroSkill is streaming, the browser-only score is blended (50/50 by default) with a band-amplitude ratio derived from electrodes:
 
 ```
 BAR = (θ + α) / β
